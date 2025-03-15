@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <title>NEXO Colombia: Reinventando la ropa interior masculina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+      #hero {
+          background-image: url("{% static 'images/background.png' %}");
+          height: 90vh;
+          width: 100%;
+          background-size: cover;
+          background-position: top 25% right 0;
+          padding: 0 80px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+      } /* I put this part here because the image doesn't load in .css */
+    </style>
+  </head>
+  <body>
+    <header>
+      <section id="header">
+        <a href="#"><img src="{% static 'images/logo.png' %}" class="NEXO" alt="Logo" height="42" width="42"></a> <!-- Corrige esta línea -->
+
+        <div>
+          <ul id="navbar">
+            <li><a class="active" href="{% url 'home' %}">HOME</a></li>
+          </ul>
+        </div>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer class="section-p1">
+        <div class="col">
+            <div class="copy">
+              <p>&copy; 2025 NEXO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
