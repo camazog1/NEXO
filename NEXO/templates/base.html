@@ -31,11 +31,11 @@
   <body>
     <header>
       <section id="header">
-        <a href="#"><img src="{% static 'images/logo.png' %}" class="NEXO" alt="Logo" height="42" width="42"></a> <!-- Corrige esta línea -->
-
+        <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" class="NEXO" alt="Logo" height="42" width="42"></a>
         <div>
           <ul id="navbar">
-            <li><a class="active" href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'product_create' %}">CREATE</a></li> <!-- This part is temporal until create the users -->
           </ul>
         </div>
     </header>

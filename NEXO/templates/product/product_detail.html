@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}'Product Detail'{% endblock %}
+
+{% block content %}
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <img src="{{ product.images.first.image.url }}" width="100%" id="MainImg" alt="">
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="{{ product.images.all.0.image.url }}" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="{{ product.images.all.1.image.url }}" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="{{ product.images.all.2.image.url }}" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="{{ product.images.all.3.image.url }}" width="100%" class="small-img" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="single-pro-details">
+        <h6>Producto/{{product.reference}}</h6>
+        <h4>{{ product.title }}</h4>
+        <h2>${{ product.price }} COP</h2>
+        <h3 id="us">${{ product.price_dolar }} USD</h3>
+        <a href="#" class="button">¡Buy Now!</a>
+        <h4>Products Details</h4>
+        <span>{{ product.description }}</span>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}'Product Create'{% endblock %}
+
+{% block content %}
+<section id="form">
+    <h1>Create Product</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="images">Images:</label>
+        <input type="file" name="images" multiple>
+        <button type="submit">Save</button>
+    </form>
+</section>
+{% endblock %}
