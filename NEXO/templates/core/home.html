@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}'Home Page'{% endblock %}
+{% block title %}Home Page{% endblock %}
 
 {% block content %}
 <section id="hero">
@@ -7,6 +7,14 @@
     <h2>Explore</h2>
     <h1>Our Styles</h1>
     <p>Comfort, elegance and economy here</p>
-    <button onclick="location.href='#'" style="vertical-align:middle"><span>¡Buy Now!</span></button>
+    <button onclick="location.href='users/login/'" style="vertical-align:middle">
+        <span>Buy Now!</span>
+    </button>
+    
+    <!-- Enlace para crear cuenta -->
+    <p>
+        Don't have an account?
+        <a href="users/signup/">Create one here</a>
+    </p>
 </section>
 {% endblock %}

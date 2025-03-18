@@ -29,18 +29,37 @@
     </style>
   </head>
   <body>
+
+    
     <header>
       <section id="header">
         <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" class="NEXO" alt="Logo" height="42" width="42"></a>
+        {% if user.is_authenticated %}
         <div>
           <ul id="navbar">
             <li><a href="{% url 'home' %}">HOME</a></li>
-            <li><a href="{% url 'product_create' %}">CREATE</a></li> <!-- This part is temporal until create the users -->
+            <li><a href="{% url 'product_index' %}">MENU</a></li>
+            <li><a href="{% url 'product_create' %}">CREATE</a></li> 
+            <li><a href="{% url 'logout' %}">LOGOUT</a></li>
           </ul>
         </div>
+        {% endif %}
     </header>
+    {% if messages %}
+        <div class="messages-container">
+          {% for message in messages %}
+            <!-- message.tags puede ser "info", "success", "warning", "error", etc. -->
+            <div class="message {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+    {% endif %}
 
-    <main>{% block content %} {% endblock %}</main>
+    <main>
+
+      {% block content %} 
+      {% endblock %}
+    
+    </main>
 
     <footer class="section-p1">
         <div class="col">

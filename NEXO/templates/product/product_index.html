@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section-p1" id="product-list">
+  <h2>All Products</h2>
+  <div class="products-container">
+
+    {% for product in products %}
+      <div class="product-card">
+
+        <!-- Muestra la primera imagen si existe, de lo contrario un placeholder -->
+        {% if product.images.first %}
+          <img src="{{ product.images.first.image.url }}" alt="{{ product.title }}">
+        {% else %}
+          <img src="{% static 'images/placeholder.png' %}" alt="No image available">
+        {% endif %}
+
+        <h3>{{ product.title }}</h3>
+        <p class="reference">Ref: {{ product.reference }}</p>
+        <p class="price">Price: ${{ product.price }}</p>
+        <p class="price-dollar">USD: ${{ product.price_dolar }}</p>
+        <p class="description">{{ product.description }}</p>
+
+        <a href="{% url 'product_detail' product.pk %}" class="button">View Details</a>
+        <!-- Etiquetas condicionales -->
+        {% if product.is_popular %}
+          <span class="badge badge-popular">Popular</span>
+        {% endif %}
+        {% if product.is_new %}
+          <span class="badge badge-new">New</span>
+        {% endif %}
+        {% if product.discontinued %}
+          <span class="badge badge-discontinued">Discontinued</span>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -452,3 +452,198 @@ footer .section-p1{
 #form button:hover {
     background-color: #555;
 }
+
+
+.auth-container {
+    max-width: 400px;               /* Ancho máximo para centrar y no ocupar toda la pantalla */
+    margin: 80px auto;              /* Centra horizontalmente (auto) y da espacio vertical (80px) */
+    background-color: #fff;         /* Fondo blanco */
+    border-radius: 8px;             /* Esquinas redondeadas */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+    padding: 30px;                  /* Espacio interno */
+  }
+  
+  .auth-container h2 {
+    text-align: center;  
+    margin-bottom: 20px;
+  }
+  
+  .auth-container label {
+    display: block;  
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #555;                    /* Consistente con el resto del proyecto */
+  }
+  
+  .auth-container input[type="text"],
+  .auth-container input[type="email"],
+  .auth-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .auth-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: black;        /* Para seguir la línea del proyecto */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .auth-container button:hover {
+    background-color: grey;
+  }
+
+
+
+
+  /* Contenedor que posiciona los mensajes en la esquina superior derecha */
+.messages-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;  /* Para que aparezca encima de otros elementos */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;      /* Espacio entre mensajes */
+  }
+  
+  /* Estilo general del mensaje */
+  .message {
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Colores según la etiqueta (tags) */
+  .info {
+    background-color: #17a2b8;    /* Azul clarito */
+  }
+  
+  .success {
+    background-color: #28a745;   /* Verde */
+  }
+  
+  .warning {
+    background-color: #ffc107;   /* Amarillo */
+    color: #333;
+  }
+  
+  .error {
+    background-color: #dc3545;    /* Rojo */
+  }
+
+
+  /* Contenedor general */
+#product-list {
+    text-align: center;
+  }
+  
+  #product-list h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Ajusta según tu layout; aquí usamos flex wrap */
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Tarjeta individual */
+  .product-card {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background: #fff;
+    text-align: left;
+  }
+  
+  /* Imagen del producto */
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  /* Precio y descripción */
+  .product-card .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-card .description {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+
+
+  #product-list {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .price,
+  .price-dollar {
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  
+  /* Etiquetas (badges) */
+  .badge {
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 5px 5px 5px 0;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .badge-popular {
+    background-color: #28a745; /* Verde */
+  }
+  
+  .badge-new {
+    background-color: #17a2b8; /* Azul clarito */
+  }
+  
+  .badge-discontinued {
+    background-color: #dc3545; /* Rojo */
+  }
+  
