@@ -7,14 +7,14 @@
     <h2>Explore</h2>
     <h1>Our Styles</h1>
     <p>Comfort, elegance and economy here</p>
-    <button onclick="location.href='users/login/'" style="vertical-align:middle">
+    <button onclick="location.href='index/'" style="vertical-align:middle">
         <span>Buy Now!</span>
     </button>
     
-    <!-- Enlace para crear cuenta -->
+    <!-- Link to create an account -->
     <p>
         Don't have an account?
-        <a href="users/signup/">Create one here</a>
+        <a href="{% url 'signup' %}">Create one here</a>
     </p>
 </section>
 {% endblock %}

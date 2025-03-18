@@ -43,6 +43,15 @@
             <li><a href="{% url 'logout' %}">LOGOUT</a></li>
           </ul>
         </div>
+        {% else %}
+        <div>
+          <ul id="navbar">
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'product_index' %}">MENU</a></li>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'signup' %}">SIGNUP</a></li>
+          </ul>
+        </div>
         {% endif %}
     </header>
     {% if messages %}
