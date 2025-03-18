@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.contrib import messages
+from .models import CustomUser
+
+SUPERADMIN_PASSWORD = "superadmin_secret" 
+
 def signup_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -10,12 +13,25 @@ def signup_view(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
+        user_type = request.POST['user_type']  # 'final' or 'admin'
+
+        if user_type == 'admin':
+            superadmin_password = request.POST.get('superadmin_password')
+            if superadmin_password != SUPERADMIN_PASSWORD:
+                messages.error(request, 'La contraseña especial para administrador es incorrecta.')
+                return render(request, 'users/signup.html')
 
         # Crear usuario
-        user = User.objects.create_user(username=username, password=password,email=email, first_name=first_name, last_name=last_name)
-        # Iniciar sesión automáticamente después de registrarse (opcional)
+        user = CustomUser.objects.create_user(
+            username=username,
+            password=password,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            user_type=user_type
+        )
         login(request, user)
-        return redirect('home')  # Ajusta a la URL que deseas redireccionar
+        return redirect('home')  
 
     return render(request, 'users/signup.html')
 

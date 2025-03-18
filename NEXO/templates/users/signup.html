@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-<div class="auth-container">
+<section class="auth-container">
   <h2>Sign Up</h2>
   <form method="POST">
     {% csrf_token %}
@@ -22,6 +21,17 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
 
+    <label for="user_type">User Type</label>
+    <select name="user_type" id="user_type" required>
+        <option value="final">Final User</option>
+        <option value="admin">Administrator</option>
+    </select>
+
+    <div id="admin-password-field" style="display: none;">
+        <label for="superadmin_password">Special Admin Password</label>
+        <input type="password" name="superadmin_password" id="superadmin_password">
+    </div>
+
     <button type="submit">Create Account</button>
   </form>
 
@@ -29,5 +39,9 @@
     Already have an account?
     <a href="{% url 'login' %}">Log in here.</a>
   </p>
-</div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/signup.js' %}"></script>
 {% endblock %}
