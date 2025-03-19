@@ -5,9 +5,20 @@
 <section class="section-p1" id="product-list">
   <h2>All Products</h2>
 
-  <!-- Barra de búsqueda -->
+  <!-- Barra de búsqueda y selección de orden -->
   <form method="get" action="{% url 'product_index' %}" class="search-form">
-    <input type="text" name="q" placeholder="Buscar por nombre" value="{{ query|default:'' }}" class="search-input">
+    <!-- Campo de texto para la búsqueda -->
+    <input type="text" name="q" placeholder="Buscar por nombre"
+           value="{{ query|default:'' }}" class="search-input">
+
+    <!-- Select para ordenar -->
+    <select name="sort" class="sort-select">
+      <option value="">-- Ordenar --</option>
+      <option value="price_asc" {% if request.GET.sort == "price_asc" %}selected{% endif %}>Precio: Menor a Mayor</option>
+      <option value="price_desc" {% if request.GET.sort == "price_desc" %}selected{% endif %}>Precio: Mayor a Menor</option>
+      <option value="alpha" {% if request.GET.sort == "alpha" %}selected{% endif %}>Orden Alfabético</option>
+    </select>
+
     <button type="submit" class="search-button">Buscar</button>
   </form>
 
@@ -15,17 +26,21 @@
     {% if products %}
       {% for product in products %}
         <div class="product-card">
+
+          <!-- Primera imagen o placeholder -->
           {% if product.images.first %}
             <img src="{{ product.images.first.image.url }}" alt="{{ product.title }}">
           {% else %}
             <img src="{% static 'images/placeholder.png' %}" alt="No image available">
           {% endif %}
+
           <h3>{{ product.title }}</h3>
           <p class="reference">Ref: {{ product.reference }}</p>
           <p class="price">Price: ${{ product.price }}</p>
           <p class="price-dollar">USD: ${{ product.price_dolar }}</p>
           <p class="description">{{ product.description }}</p>
 
+          <!-- Detalle del producto -->
           <a href="{% url 'product_detail' product.pk %}" class="button">View Details</a>
           
           <!-- Etiquetas condicionales -->
