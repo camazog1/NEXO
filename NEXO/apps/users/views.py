@@ -13,7 +13,7 @@ def signup_view(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
-        user_type = request.POST['user_type']  # 'final' or 'admin'
+        user_type = request.POST['user_type']
 
         if user_type == 'admin':
             superadmin_password = request.POST.get('superadmin_password')
@@ -21,7 +21,6 @@ def signup_view(request):
                 messages.error(request, 'La contraseña especial para administrador es incorrecta.')
                 return render(request, 'users/signup.html')
 
-        # Crear usuario
         user = CustomUser.objects.create_user(
             username=username,
             password=password,
