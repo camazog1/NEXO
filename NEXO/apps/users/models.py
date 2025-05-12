@@ -1,12 +1,13 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, user_type='final', **extra_fields):
         if not email:
-            raise ValueError('El usuario debe tener un correo electrónico')
+            raise ValueError(_('User must have an email address'))
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, user_type=user_type, **extra_fields)
         user.set_password(password)
@@ -20,10 +21,10 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     USER_TYPE_CHOICES = (
-        ('admin', 'Admin'),
-        ('final', 'Final'),
+        ('admin', _('Admin')),
+        ('final', _('Final User')),
     )
-    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='final')
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='final', verbose_name=_('User Type'))
 
     objects = CustomUserManager()
 

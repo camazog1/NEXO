@@ -18,15 +18,28 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
+from apps.core.views import change_language
 
+# URLs no traducibles (estáticos y selector de idioma)
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('apps.core.urls')),
-    path('', include('apps.product.urls')),
-    path('users/', include('apps.users.urls')),
-    path('dashboard/', include('apps.dashboard.urls')),
+    # Selector de idioma personalizado
+    path('set-language/', change_language, name='set_language'),
 ]
 
+# URLs traducibles - Todas las URLs incluirán el prefijo de idioma
+urlpatterns += i18n_patterns(
+    path(_('admin/'), admin.site.urls),
+    path('', include('apps.core.urls')),
+    path('', include('apps.product.urls')),
+    path(_('users/'), include('apps.users.urls')),
+    path(_('dashboard/'), include('apps.dashboard.urls')),
+    # Mostrar siempre el prefijo de idioma, incluso para el idioma predeterminado
+    prefix_default_language=True,
+)
+
+# Archivos estáticos en desarrollo
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

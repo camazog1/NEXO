@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from apps.product.models import Product
 from apps.product.forms import ProductForm
+from django.utils.translation import gettext_lazy as _
 
 # Create your views here.
 
@@ -22,7 +23,7 @@ def product_create(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product created successfully!')
+            messages.success(request, _('Product created successfully!'))
             return redirect('product_list')
     else:
         form = ProductForm()
@@ -36,7 +37,7 @@ def product_update(request, pk):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product updated successfully!')
+            messages.success(request, _('Product updated successfully!'))
             return redirect('product_list')
     else:
         form = ProductForm(instance=product)
@@ -48,6 +49,6 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'POST':
         product.delete()
-        messages.success(request, 'Product deleted successfully!')
+        messages.success(request, _('Product deleted successfully!'))
         return redirect('product_list')
     return render(request, 'dashboard/product_delete.html', {'product': product})

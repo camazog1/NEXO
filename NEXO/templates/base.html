@@ -1,7 +1,8 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +12,7 @@
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
-    <title>NEXO Colombia: Reinventando la ropa interior masculina</title>
+    <title>{% translate "NEXO Colombia: Reinventando la ropa interior masculina" %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
       #hero {
@@ -26,6 +27,17 @@
           align-items: flex-start;
           justify-content: center;
       } /* I put this part here because the image doesn't load in .css */
+      
+      /* Language selector styling */
+      .language-selector {
+        margin-left: 15px;
+        display: inline-block;
+      }
+      .language-selector select {
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
     </style>
   </head>
   <body>
@@ -36,21 +48,51 @@
         {% if user.is_authenticated %}
         <div>
           <ul id="navbar">
-            <li><a href="{% url 'home' %}">HOME</a></li>
-            <li><a href="{% url 'product_index' %}">MENU</a></li>
+            <li><a href="{% url 'home' %}">{% translate "HOME" %}</a></li>
+            <li><a href="{% url 'product_index' %}">{% translate "MENU" %}</a></li>
             {% if user.user_type == 'admin' %}
-            <li><a href="{% url 'product_list' %}">DASHBOARD</a></li>
+            <li><a href="{% url 'product_list' %}">{% translate "DASHBOARD" %}</a></li>
             {% endif %}
-            <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+            <li><a href="{% url 'logout' %}">{% translate "LOGOUT" %}</a></li>
+            <li>
+              <form action="{% url 'set_language' %}" method="post" class="language-selector">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <select name="language" onchange="this.form.submit()">
+                  {% get_current_language as CURRENT_LANGUAGE %}
+                  {% get_available_languages as AVAILABLE_LANGUAGES %}
+                  {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
+                    <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
+                      {{ lang_name }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </form>
+            </li>
           </ul>
         </div>
         {% else %}
         <div>
           <ul id="navbar">
-            <li><a href="{% url 'home' %}">HOME</a></li>
-            <li><a href="{% url 'product_index' %}">MENU</a></li>
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
-            <li><a href="{% url 'signup' %}">SIGNUP</a></li>
+            <li><a href="{% url 'home' %}">{% translate "HOME" %}</a></li>
+            <li><a href="{% url 'product_index' %}">{% translate "MENU" %}</a></li>
+            <li><a href="{% url 'login' %}">{% translate "LOGIN" %}</a></li>
+            <li><a href="{% url 'signup' %}">{% translate "SIGNUP" %}</a></li>
+            <li>
+              <form action="{% url 'set_language' %}" method="post" class="language-selector">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <select name="language" onchange="this.form.submit()">
+                  {% get_current_language as CURRENT_LANGUAGE %}
+                  {% get_available_languages as AVAILABLE_LANGUAGES %}
+                  {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
+                    <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
+                      {{ lang_name }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </form>
+            </li>
           </ul>
         </div>
         {% endif %}
@@ -73,7 +115,7 @@
     <footer class="section-p1">
         <div class="col">
             <div class="copy">
-              <p>&copy; 2025 NEXO. All rights reserved.</p>
+              <p>{% translate "&copy; 2025 NEXO. All rights reserved." %}</p>
             </div>
         </div>
     </footer>

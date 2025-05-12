@@ -1,25 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <section class="section-p1" id="product-list">
-  <h2>All Products</h2>
+  <h2>{% translate "All Products" %}</h2>
 
   <!-- Barra de búsqueda y selección de orden -->
   <form method="get" action="{% url 'product_index' %}" class="search-form">
     <!-- Campo de texto para la búsqueda -->
-    <input type="text" name="q" placeholder="Buscar por nombre"
+    <input type="text" name="q" placeholder="{% translate 'Search by name' %}"
            value="{{ query|default:'' }}" class="search-input">
 
     <!-- Select para ordenar -->
     <select name="sort" class="sort-select">
-      <option value="">-- Ordenar --</option>
-      <option value="price_asc" {% if request.GET.sort == "price_asc" %}selected{% endif %}>Precio: Menor a Mayor</option>
-      <option value="price_desc" {% if request.GET.sort == "price_desc" %}selected{% endif %}>Precio: Mayor a Menor</option>
-      <option value="alpha" {% if request.GET.sort == "alpha" %}selected{% endif %}>Orden Alfabético</option>
+      <option value="">-- {% translate "Sort" %} --</option>
+      <option value="price_asc" {% if request.GET.sort == "price_asc" %}selected{% endif %}>{% translate "Price: Low to High" %}</option>
+      <option value="price_desc" {% if request.GET.sort == "price_desc" %}selected{% endif %}>{% translate "Price: High to Low" %}</option>
+      <option value="alpha" {% if request.GET.sort == "alpha" %}selected{% endif %}>{% translate "Alphabetical Order" %}</option>
     </select>
 
-    <button type="submit" class="search-button">Buscar</button>
+    <button type="submit" class="search-button">{% translate "Search" %}</button>
   </form>
 
   <div class="products-container">
@@ -31,35 +32,35 @@
           {% if product.images.first %}
             <img src="{{ product.images.first.image.url }}" alt="{{ product.title }}">
           {% else %}
-            <img src="{% static 'images/placeholder.png' %}" alt="No image available">
+            <img src="{% static 'images/placeholder.png' %}" alt="{% translate 'No image available' %}">
           {% endif %}
 
           <h3>{{ product.title }}</h3>
-          <p class="reference">Ref: {{ product.reference }}</p>
-          <p class="price">Price: ${{ product.price }}</p>
+          <p class="reference">{% translate "Ref" %}: {{ product.reference }}</p>
+          <p class="price">{% translate "Price" %}: ${{ product.price }}</p>
           <p class="price-dollar">USD: ${{ product.price_dolar }}</p>
           <p class="description">{{ product.description }}</p>
 
           <!-- Detalle del producto -->
-          <a href="{% url 'product_detail' product.pk %}" class="button">View Details</a>
+          <a href="{% url 'product_detail' product.pk %}" class="button">{% translate "View Details" %}</a>
           
           <!-- Etiquetas condicionales -->
           {% if product.is_popular %}
-            <span class="badge badge-popular">Popular</span>
+            <span class="badge badge-popular">{% translate "Popular" %}</span>
           {% endif %}
           {% if product.is_new %}
-            <span class="badge badge-new">New</span>
+            <span class="badge badge-new">{% translate "New" %}</span>
           {% endif %}
           {% if product.discontinued %}
-            <span class="badge badge-discontinued">Discontinued</span>
+            <span class="badge badge-discontinued">{% translate "Discontinued" %}</span>
           {% endif %}
         </div>
       {% endfor %}
     {% else %}
       <!-- Mostrar imagen si no se encuentran productos -->
       <div class="no-products">
-        <img src="{% static 'images/withoutstock.png' %}" alt="No products found">
-        <p>No se encontraron productos relacionados con tu búsqueda.</p>
+        <img src="{% static 'images/withoutstock.png' %}" alt="{% translate 'No products found' %}">
+        <p>{% translate "No products found related to your search." %}</p>
       </div>
     {% endif %}
   </div>

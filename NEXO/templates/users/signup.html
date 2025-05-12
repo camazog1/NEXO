@@ -1,43 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <section class="auth-container">
-  <h2>Sign Up</h2>
+  <h2>{% translate "Sign Up" %}</h2>
   <form method="POST">
     {% csrf_token %}
-    <label for="username">Username</label>
+    <label for="username">{% translate "Username" %}</label>
     <input type="text" name="username" id="username" required>
 
-    <label for="first_name">First Name</label>
+    <label for="first_name">{% translate "First Name" %}</label>
     <input type="text" name="first_name" id="first_name">
 
-    <label for="last_name">Last Name</label>
+    <label for="last_name">{% translate "Last Name" %}</label>
     <input type="text" name="last_name" id="last_name">
 
-    <label for="email">Email</label>
+    <label for="email">{% translate "Email" %}</label>
     <input type="email" name="email" id="email">
 
-    <label for="password">Password</label>
+    <label for="password">{% translate "Password" %}</label>
     <input type="password" name="password" id="password" required>
 
-    <label for="user_type">User Type</label>
+    <label for="user_type">{% translate "User Type" %}</label>
     <select name="user_type" id="user_type" required>
-        <option value="final">Final User</option>
-        <option value="admin">Administrator</option>
+        <option value="final">{% translate "Final User" %}</option>
+        <option value="admin">{% translate "Administrator" %}</option>
     </select>
 
     <div id="admin-password-field" style="display: none;">
-        <label for="superadmin_password">Special Admin Password</label>
+        <label for="superadmin_password">{% translate "Special Admin Password" %}</label>
         <input type="password" name="superadmin_password" id="superadmin_password">
     </div>
 
-    <button type="submit">Create Account</button>
+    <button type="submit">{% translate "Create Account" %}</button>
   </form>
 
   <p style="margin-top: 10px;">
-    Already have an account?
-    <a href="{% url 'login' %}">Log in here.</a>
+    {% translate "Already have an account?" %}
+    <a href="{% url 'login' %}">{% translate "Log in here." %}</a>
   </p>
 </section>
 {% endblock %}

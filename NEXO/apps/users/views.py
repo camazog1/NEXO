@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib import messages
 from .models import CustomUser
+from django.utils.translation import gettext_lazy as _
 
 SUPERADMIN_PASSWORD = "superadmin_secret" 
 
@@ -18,7 +19,7 @@ def signup_view(request):
         if user_type == 'admin':
             superadmin_password = request.POST.get('superadmin_password')
             if superadmin_password != SUPERADMIN_PASSWORD:
-                messages.error(request, 'La contraseña especial para administrador es incorrecta.')
+                messages.error(request, _('The special admin password is incorrect.'))
                 return render(request, 'users/signup.html')
 
         user = CustomUser.objects.create_user(
@@ -44,7 +45,7 @@ def login_view(request):
             login(request, user)
             return redirect('product_index')
         else:
-            messages.error(request, 'Credenciales inválidas')
+            messages.error(request, _('Invalid credentials'))
     return render(request, 'users/login.html')
 
 

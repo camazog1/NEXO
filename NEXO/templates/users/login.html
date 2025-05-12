@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <div class="auth-container">
-  <h2>Log In</h2>
+  <h2>{% translate "Log In" %}</h2>
   <form method="POST">
     {% csrf_token %}
     
-    <label for="username">Username</label>
+    <label for="username">{% translate "Username" %}</label>
     <input type="text" name="username" id="username" required>
 
-    <label for="password">Password</label>
+    <label for="password">{% translate "Password" %}</label>
     <input type="password" name="password" id="password" required>
 
-    <button type="submit">Log In</button>
+    <button type="submit">{% translate "Log In" %}</button>
   </form>
   
   <!-- Enlace a Sign Up -->
   <p style="margin-top: 10px;">
-    Don't have an account?
-    <a href="{% url 'signup' %}">Create one here</a>
+    {% translate "Don't have an account?" %}
+    <a href="{% url 'signup' %}">{% translate "Create one here" %}</a>
   </p>
 </div>
 {% endblock %}

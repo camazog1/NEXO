@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -108,13 +109,40 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Idioma predeterminado
+LANGUAGE_CODE = 'en'
 
+# Idiomas disponibles
+LANGUAGES = (
+    ('en', 'English'),
+    ('es', 'Español'),
+)
+
+# Directorios donde buscar traducciones
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+# Zona horaria
 TIME_ZONE = 'UTC'
 
+# Habilitar internacionalización
 USE_I18N = True
 
+# Habilitar formato de fechas según localización
+USE_L10N = True
+
+# Habilitar zonas horarias
 USE_TZ = True
+
+# Configuración de la sesión para el idioma
+LANGUAGE_COOKIE_NAME = 'django_language'
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365  # 1 año
+LANGUAGE_COOKIE_PATH = '/'
+LANGUAGE_COOKIE_DOMAIN = None
+LANGUAGE_COOKIE_SECURE = False
+LANGUAGE_COOKIE_HTTPONLY = False
+LANGUAGE_COOKIE_SAMESITE = None
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

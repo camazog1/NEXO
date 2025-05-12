@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}Home Page{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Home Page" %}{% endblock %}
 
 {% block content %}
 <section id="hero">
-    <h4>Discover elegance</h4>
-    <h2>Explore</h2>
-    <h1>Our Styles</h1>
-    <p>Comfort, elegance and economy here</p>
+    <h4>{% translate "Discover elegance" %}</h4>
+    <h2>{% translate "Explore" %}</h2>
+    <h1>{% translate "Our Styles" %}</h1>
+    <p>{% translate "Comfort, elegance and economy here" %}</p>
     <button onclick="location.href='index/'" style="vertical-align:middle">
-        <span>Buy Now!</span>
+        <span>{% translate "Buy Now!" %}</span>
     </button>
     
     <!-- Link to create an account -->
     <p>
-        Don't have an account?
-        <a href="{% url 'signup' %}">Create one here</a>
+        {% translate "Don't have an account?" %}
+        <a href="{% url 'signup' %}">{% translate "Create one here" %}</a>
     </p>
 </section>
 {% endblock %}

@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}'Product Detail'{% endblock %}
+{% load i18n %}
+{% block title %}{% translate 'Product Detail' %}{% endblock %}
 
 {% block content %}
 <section id="prodetails" class="section-p1">
     <div class="single-pro-image">
-        <img src="{{ product.images.first.image.url }}" width="100%" id="MainImg" alt="Main Image">
+        <img src="{{ product.images.first.image.url }}" width="100%" id="MainImg" alt="{% translate 'Main Image' %}">
         <div class="small-img-group">
             {% for image in product.images.all %}
             <div class="small-img-col">
-                <img src="{{ image.image.url }}" width="100%" class="small-img" alt="Product Image {{ forloop.counter }}">
+                <img src="{{ image.image.url }}" width="100%" class="small-img" alt="{% translate 'Product Image' %} {{ forloop.counter }}">
             </div>
             {% endfor %}
         </div>
     </div>
     <div class="single-pro-details">
-        <h6>Producto/{{ product.reference }}</h6>
+        <h6>{% translate "Product" %}/{{ product.reference }}</h6>
         <h4>{{ product.title }}</h4>
         <h2>${{ product.price }} COP</h2>
         <h3 id="us">${{ product.price_dolar }} USD</h3>
-        <a href="#" class="button">¡Buy Now!</a>
-        <h4>Products Details</h4>
+        <a href="#" class="button">{% translate "Buy Now!" %}</a>
+        <h4>{% translate "Product Details" %}</h4>
         <span>{{ product.description }}</span>
     </div>
 </section>
