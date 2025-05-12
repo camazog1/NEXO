@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "API Documentation" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">{% translate "NEXO API Documentation" %}</h1>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0">{% translate "Product API" %}</h2>
+        </div>
+        <div class="card-body">
+            <h3 class="h5">{% translate "Endpoint" %}</h3>
+            <div class="bg-light p-3 mb-3 rounded">
+                <code>GET /api/products/</code>
+            </div>
+            
+            <h3 class="h5">{% translate "Description" %}</h3>
+            <p>{% translate "This endpoint returns a list of all products available in the NEXO store. Each product includes details such as title, reference, description, price, and a direct URL to view the product." %}</p>
+            
+            <h3 class="h5">{% translate "Example Response" %}</h3>
+            <pre class="bg-light p-3 rounded"><code>{
+    "products": [
+        {
+            "title": "Product Name",
+            "reference": "PROD123",
+            "description": "Product description",
+            "price": 1500,
+            "price_dolar": 15.50,
+            "is_popular": true,
+            "is_new": true,
+            "discontinued": false,
+            "url": "https://example.com/product/PROD123/"
+        },
+        ...
+    ],
+    "count": 10,
+    "service_info": {
+        "name": "NEXO Product API",
+        "version": "1.0",
+        "description": "API para obtener información de productos NEXO"
+    }
+}</code></pre>
+            
+            <h3 class="h5">{% translate "How to Use This API" %}</h3>
+            <p>{% translate "To consume this API in your application, you can use a simple HTTP request. Here are examples using different technologies:" %}</p>
+            
+            <h4 class="h6">{% translate "Using JavaScript (Fetch API)" %}</h4>
+            <pre class="bg-light p-3 rounded"><code>fetch('https://your-nexo-site.com/api/products/')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.products);
+        // Process the products here
+    })
+    .catch(error => console.error('Error:', error));</code></pre>
+            
+            <h4 class="h6">{% translate "Using Python (Requests)" %}</h4>
+            <pre class="bg-light p-3 rounded"><code>import requests
+
+response = requests.get('https://your-nexo-site.com/api/products/')
+data = response.json()
+products = data['products']
+# Process the products here</code></pre>
+        </div>
+    </div>
+    
+    <div class="alert alert-info">
+        <h3 class="h5">{% translate "Integration Instructions" %}</h3>
+        <p>{% translate "If you are from another team and need to integrate our products into your application, please follow these steps:" %}</p>
+        <ol>
+            <li>{% translate "Make HTTP requests to our API endpoint mentioned above." %}</li>
+            <li>{% translate "Process the JSON response to extract product information." %}</li>
+            <li>{% translate "Display the products in your application using the information provided." %}</li>
+            <li>{% translate "Use the provided 'url' field to link back to our detailed product view if needed." %}</li>
+        </ol>
+        <p>{% translate "If you have any questions or need assistance, please contact our team." %}</p>
+    </div>
+</div>
+{% endblock %} 

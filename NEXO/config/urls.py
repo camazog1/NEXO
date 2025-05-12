@@ -18,14 +18,26 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.i18n import i18n_patterns, set_language
 from django.utils.translation import gettext_lazy as _
-from apps.core.views import change_language
+from django.views.generic import TemplateView
+from django.shortcuts import redirect
+from apps.product.views import api_products
+
+# Función para redirigir a la URL con prefijo de idioma
+def home_redirect(request):
+    return redirect(f'/{settings.LANGUAGE_CODE}/')
 
 # URLs no traducibles (estáticos y selector de idioma)
 urlpatterns = [
-    # Selector de idioma personalizado
-    path('set-language/', change_language, name='set_language'),
+    # Redirección a la página de inicio con prefijo de idioma
+    path('', home_redirect, name='home_redirect'),
+    # Selector de idioma usando la vista de Django
+    path('set-language/', set_language, name='set_language'),
+    # Documentación de la API (no traducible para garantizar acceso consistente)
+    path('api/docs/', TemplateView.as_view(template_name='api_docs.html'), name='api_docs'),
+    # API endpoint para productos
+    path('api/products/', api_products, name='api_products'),
 ]
 
 # URLs traducibles - Todas las URLs incluirán el prefijo de idioma
