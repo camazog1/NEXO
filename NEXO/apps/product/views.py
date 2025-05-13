@@ -2,8 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, ProductImage
 from .forms import ProductForm
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, Http404
 from django.urls import reverse
+from django.utils.translation import gettext as _
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+# Importar las clases de generación de reportes
+from .reports.report_factory import ReportFactory
 
 def product_index(request):
     # 1. Capturar el término de búsqueda (query)
@@ -50,6 +56,38 @@ def product_create(request):
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product/product_detail.html', {'product': product})
+
+@login_required
+def generate_product_report(request, format_type):
+    if format_type not in ['pdf', 'excel']:
+        messages.error(request, _("Formato de reporte no válido. Use 'pdf' o 'excel'."))
+        return redirect('product_index')
+    
+    report_generator = ReportFactory.get_report_generator(format_type)
+    
+    if not report_generator:
+        messages.error(request, _("No se pudo crear el generador de reportes para el formato especificado."))
+        return redirect('product_index')
+    
+    products = Product.objects.all()
+    
+    products_data = []
+    for product in products:
+        products_data.append({
+            'reference': product.reference,
+            'title': product.title,
+            'description': product.description,
+            'price': product.price,
+            'price_dolar': float(product.price_dolar),
+            'is_popular': product.is_popular,
+            'is_new': product.is_new,
+            'discontinued': product.discontinued,
+        })
+    
+    return report_generator.generate_product_report(
+        products=products_data,
+        title=_("NEXO Products Report")
+    )
 
 def api_products(request):
     """

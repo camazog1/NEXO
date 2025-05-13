@@ -6,22 +6,37 @@
 <section class="section-p1" id="product-list">
   <h2>{% translate "All Products" %}</h2>
 
-  <!-- Barra de búsqueda y selección de orden -->
-  <form method="get" action="{% url 'product_index' %}" class="search-form">
-    <!-- Campo de texto para la búsqueda -->
-    <input type="text" name="q" placeholder="{% translate 'Search by name' %}"
-           value="{{ query|default:'' }}" class="search-input">
+  <div class="header-actions">
+    <!-- Barra de búsqueda y selección de orden -->
+    <form method="get" action="{% url 'product_index' %}" class="search-form">
+      <!-- Campo de texto para la búsqueda -->
+      <input type="text" name="q" placeholder="{% translate 'Search by name' %}"
+             value="{{ query|default:'' }}" class="search-input">
 
-    <!-- Select para ordenar -->
-    <select name="sort" class="sort-select">
-      <option value="">-- {% translate "Sort" %} --</option>
-      <option value="price_asc" {% if request.GET.sort == "price_asc" %}selected{% endif %}>{% translate "Price: Low to High" %}</option>
-      <option value="price_desc" {% if request.GET.sort == "price_desc" %}selected{% endif %}>{% translate "Price: High to Low" %}</option>
-      <option value="alpha" {% if request.GET.sort == "alpha" %}selected{% endif %}>{% translate "Alphabetical Order" %}</option>
-    </select>
+      <!-- Select para ordenar -->
+      <select name="sort" class="sort-select">
+        <option value="">-- {% translate "Sort" %} --</option>
+        <option value="price_asc" {% if request.GET.sort == "price_asc" %}selected{% endif %}>{% translate "Price: Low to High" %}</option>
+        <option value="price_desc" {% if request.GET.sort == "price_desc" %}selected{% endif %}>{% translate "Price: High to Low" %}</option>
+        <option value="alpha" {% if request.GET.sort == "alpha" %}selected{% endif %}>{% translate "Alphabetical Order" %}</option>
+      </select>
 
-    <button type="submit" class="search-button">{% translate "Search" %}</button>
-  </form>
+      <button type="submit" class="search-button">{% translate "Search" %}</button>
+    </form>
+
+    <!-- Botones para generar reportes -->
+    {% if user.is_authenticated %}
+      <div class="report-actions">
+        <span class="report-label">{% translate "Generate report:" %}</span>
+        <a href="{% url 'generate_product_report' 'pdf' %}" class="report-button pdf-button">
+          <i class="fas fa-file-pdf"></i> PDF
+        </a>
+        <a href="{% url 'generate_product_report' 'excel' %}" class="report-button excel-button">
+          <i class="fas fa-file-excel"></i> Excel
+        </a>
+      </div>
+    {% endif %}
+  </div>
 
   <div class="products-container">
     {% if products %}
@@ -65,4 +80,80 @@
     {% endif %}
   </div>
 </section>
+
+<style>
+  /* Estilos para la sección de acciones de cabecera */
+  .header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para la sección de reportes */
+  .report-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .report-label {
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .report-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .report-button i {
+    margin-right: 5px;
+  }
+  
+  .pdf-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .pdf-button:hover {
+    background-color: #c82333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .excel-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .excel-button:hover {
+    background-color: #218838;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .header-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .search-form, .report-actions {
+      width: 100%;
+    }
+    
+    .report-actions {
+      margin-top: 15px;
+      justify-content: center;
+    }
+  }
+</style>
 {% endblock %}

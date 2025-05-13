@@ -3,6 +3,58 @@
 {% block title %}{% translate "Home Page" %}{% endblock %}
 
 {% block content %}
+<style>
+    /* Estilos para el widget flotante de tipo de cambio */
+    .exchange-widget {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: rgba(13, 110, 253, 0.8);
+        backdrop-filter: blur(5px);
+        color: white;
+        border-radius: 15px;
+        padding: 10px 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+        max-width: 200px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .exchange-title {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .exchange-title i {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+    
+    .exchange-rate {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .exchange-source {
+        font-size: 10px;
+        opacity: 0.8;
+    }
+    
+    .exchange-source a {
+        color: white;
+        text-decoration: underline;
+    }
+    
+    .exchange-widget:hover {
+        opacity: 1 !important;
+    }
+</style>
+
 <section id="hero">
     <h4>{% translate "Discover elegance" %}</h4>
     <h2>{% translate "Explore" %}</h2>
@@ -18,4 +70,45 @@
         <a href="{% url 'signup' %}">{% translate "Create one here" %}</a>
     </p>
 </section>
+
+<!-- Widget flotante de tipo de cambio USD a COP -->
+<div id="exchange-widget" class="exchange-widget">
+    <div class="exchange-content">
+        <div class="exchange-title">
+            <i class="fas fa-sync-alt"></i> USD → COP
+        </div>
+        <div class="exchange-rate">
+            <span>{{ exchange_rates.USD_COP|floatformat:2 }}</span>
+        </div>
+        <div class="exchange-source">
+            {% translate "Source" %}: <a href="https://www.exchangerate-api.com/" target="_blank">ExchangeRate-API</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animación para el widget de tipo de cambio
+        const widget = document.getElementById('exchange-widget');
+        
+        // Aparecer con fade-in
+        widget.style.opacity = '0';
+        setTimeout(() => {
+            widget.style.opacity = '0.9';
+        }, 500);
+        
+        // Hacer que el widget desaparezca después de hacer scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                widget.style.opacity = '0';
+                widget.style.pointerEvents = 'none';
+            } else {
+                widget.style.opacity = '0.9';
+                widget.style.pointerEvents = 'auto';
+            }
+        });
+    });
+</script>
 {% endblock %}
