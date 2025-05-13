@@ -154,3 +154,57 @@ def get_exchange_rates():
             'last_updated': datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000"),
             'error': str(e)
         }
+
+def set_language(request):
+    """Custom view to set the language in the session and cookies"""
+    if request.method == 'POST':
+        language = request.POST.get('language', settings.LANGUAGE_CODE)
+        next_url = request.POST.get('next', request.GET.get('next', '/'))
+        
+        print(f"Changing language to {language}")
+        print(f"Next URL: {next_url}")
+        
+        # Ensure the language is in the available languages
+        if language in [lang[0] for lang in settings.LANGUAGES]:
+            # Activate the language for the current request
+            translation.activate(language)
+            
+            # Parse the next_url to modify it correctly for the language change
+            if next_url.startswith('/'):
+                # If there's a language prefix, replace it
+                parts = next_url.split('/')
+                if len(parts) > 1 and parts[1] in [lang[0] for lang in settings.LANGUAGES]:
+                    parts[1] = language
+                    next_url = '/'.join(parts)
+                else:
+                    # If there's no language prefix, add it
+                    next_url = f'/{language}{next_url}'
+            else:
+                # If it doesn't start with /, add the language prefix
+                next_url = f'/{language}/{next_url}'
+            
+            print(f"Modified next URL: {next_url}")
+            
+            # Create the redirect response
+            response = HttpResponseRedirect(next_url)
+            
+            # Set the language in the session and cookie
+            request.session['_language'] = language
+            response.set_cookie(
+                settings.LANGUAGE_COOKIE_NAME,
+                language,
+                max_age=settings.LANGUAGE_COOKIE_AGE,
+                path=settings.LANGUAGE_COOKIE_PATH,
+                domain=settings.LANGUAGE_COOKIE_DOMAIN,
+                secure=settings.LANGUAGE_COOKIE_SECURE,
+                httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
+                samesite=settings.LANGUAGE_COOKIE_SAMESITE,
+            )
+            
+            print(f"Language set to {language} - redirecting to {next_url}")
+            return response
+    
+    # For GET requests or if something went wrong
+    referer = request.META.get('HTTP_REFERER', '/')
+    print(f"Language set failed, redirecting to {referer}")
+    return redirect(referer)

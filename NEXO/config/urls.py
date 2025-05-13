@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns, set_language
+from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 from apps.product.views import api_products
+from apps.core.views import set_language
 
 # Función para redirigir a la URL con prefijo de idioma
 def home_redirect(request):
@@ -32,7 +33,7 @@ def home_redirect(request):
 urlpatterns = [
     # Redirección a la página de inicio con prefijo de idioma
     path('', home_redirect, name='home_redirect'),
-    # Selector de idioma usando la vista de Django
+    # Selector de idioma usando nuestra vista personalizada
     path('set-language/', set_language, name='set_language'),
     # Documentación de la API (no traducible para garantizar acceso consistente)
     path('api/docs/', TemplateView.as_view(template_name='api_docs.html'), name='api_docs'),

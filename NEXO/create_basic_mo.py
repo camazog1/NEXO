@@ -1,4 +1,3 @@
-
 import os
 
 
@@ -6,11 +5,11 @@ try:
     import polib
     print("Usando polib para generar el archivo .mo...")
     
+    # Create Spanish translations
+    os.makedirs('locale/es/LC_MESSAGES', exist_ok=True)
     
-    os.makedirs('NEXO/locale/es/LC_MESSAGES', exist_ok=True)
-    
-    po = polib.POFile()
-    po.metadata = {
+    po_es = polib.POFile()
+    po_es.metadata = {
         'Project-Id-Version': 'NEXO 1.0',
         'Report-Msgid-Bugs-To': '',
         'POT-Creation-Date': '2024-06-15 12:00+0000',
@@ -24,8 +23,25 @@ try:
         'Plural-Forms': 'nplurals=2; plural=(n != 1);',
     }
     
+    # Create English translations
+    os.makedirs('locale/en/LC_MESSAGES', exist_ok=True)
     
-    translations = {
+    po_en = polib.POFile()
+    po_en.metadata = {
+        'Project-Id-Version': 'NEXO 1.0',
+        'Report-Msgid-Bugs-To': '',
+        'POT-Creation-Date': '2024-06-15 12:00+0000',
+        'PO-Revision-Date': '2024-06-15 12:00+0000',
+        'Last-Translator': '',
+        'Language-Team': '',
+        'Language': 'en',
+        'MIME-Version': '1.0',
+        'Content-Type': 'text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding': '8bit',
+        'Plural-Forms': 'nplurals=2; plural=(n != 1);',
+    }
+    
+    translations_es = {
         
         "HOME": "INICIO",
         "MENU": "MENÚ",
@@ -137,24 +153,45 @@ try:
         "&copy; 2025 NEXO. All rights reserved.": "&copy; 2025 NEXO. Todos los derechos reservados."
     }
     
-    # Añadir las entradas al archivo .po
-    for original, translation in translations.items():
+    # English translations (identical source and target for English)
+    translations_en = {}
+    for key in translations_es.keys():
+        translations_en[key] = key
+    
+    # Add entries to the Spanish .po file
+    for original, translation in translations_es.items():
         entry = polib.POEntry(
             msgid=original,
             msgstr=translation,
             occurrences=[('django', '1')]
         )
-        po.append(entry)
+        po_es.append(entry)
     
-    # Guardar los archivos .po y .mo
-    po_file = 'NEXO/locale/es/LC_MESSAGES/django.po'
-    mo_file = 'NEXO/locale/es/LC_MESSAGES/django.mo'
+    # Add entries to the English .po file
+    for original, translation in translations_en.items():
+        entry = polib.POEntry(
+            msgid=original,
+            msgstr=translation,
+            occurrences=[('django', '1')]
+        )
+        po_en.append(entry)
     
-    po.save(po_file)
-    po.save_as_mofile(mo_file)
+    # Save the Spanish .po and .mo files
+    po_file_es = 'locale/es/LC_MESSAGES/django.po'
+    mo_file_es = 'locale/es/LC_MESSAGES/django.mo'
     
-    print(f"Archivos creados: {po_file} y {mo_file}")
-    print(f"Se incluyeron {len(translations)} traducciones.")
+    po_es.save(po_file_es)
+    po_es.save_as_mofile(mo_file_es)
+    
+    # Save the English .po and .mo files
+    po_file_en = 'locale/en/LC_MESSAGES/django.po'
+    mo_file_en = 'locale/en/LC_MESSAGES/django.mo'
+    
+    po_en.save(po_file_en)
+    po_en.save_as_mofile(mo_file_en)
+    
+    print(f"Archivos creados: {po_file_es}, {mo_file_es}, {po_file_en}, {mo_file_en}")
+    print(f"Se incluyeron {len(translations_es)} traducciones en español y {len(translations_en)} en inglés.")
     
 except ImportError:
     print("Error: polib no está instalado.")

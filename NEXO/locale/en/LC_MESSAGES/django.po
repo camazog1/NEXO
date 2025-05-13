@@ -7,7 +7,7 @@ msgstr ""
 "PO-Revision-Date: 2024-06-15 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,27 +15,27 @@ msgstr ""
 
 #: django:1
 msgid "HOME"
-msgstr "INICIO"
+msgstr "HOME"
 
 #: django:1
 msgid "MENU"
-msgstr "MENÚ"
+msgstr "MENU"
 
 #: django:1
 msgid "LOGIN"
-msgstr "INICIAR SESIÓN"
+msgstr "LOGIN"
 
 #: django:1
 msgid "SIGNUP"
-msgstr "REGISTRARSE"
+msgstr "SIGNUP"
 
 #: django:1
 msgid "DASHBOARD"
-msgstr "PANEL DE CONTROL"
+msgstr "DASHBOARD"
 
 #: django:1
 msgid "LOGOUT"
-msgstr "CERRAR SESIÓN"
+msgstr "LOGOUT"
 
 #: django:1
 msgid "NEXO Colombia: Reinventando la ropa interior masculina"
@@ -43,147 +43,147 @@ msgstr "NEXO Colombia: Reinventando la ropa interior masculina"
 
 #: django:1
 msgid "Home Page"
-msgstr "Página de Inicio"
+msgstr "Home Page"
 
 #: django:1
 msgid "Product List"
-msgstr "Lista de Productos"
+msgstr "Product List"
 
 #: django:1
 msgid "Product Create"
-msgstr "Crear Producto"
+msgstr "Product Create"
 
 #: django:1
 msgid "Product Update"
-msgstr "Actualizar Producto"
+msgstr "Product Update"
 
 #: django:1
 msgid "Product Delete"
-msgstr "Eliminar Producto"
+msgstr "Product Delete"
 
 #: django:1
 msgid "Product Detail"
-msgstr "Detalle del Producto"
+msgstr "Product Detail"
 
 #: django:1
 msgid "Discover elegance"
-msgstr "Descubre la elegancia"
+msgstr "Discover elegance"
 
 #: django:1
 msgid "Explore"
-msgstr "Explora"
+msgstr "Explore"
 
 #: django:1
 msgid "Our Styles"
-msgstr "Nuestros Estilos"
+msgstr "Our Styles"
 
 #: django:1
 msgid "Comfort, elegance and economy here"
-msgstr "Comodidad, elegancia y economía aquí"
+msgstr "Comfort, elegance and economy here"
 
 #: django:1
 msgid "Buy Now!"
-msgstr "¡Compra Ahora!"
+msgstr "Buy Now!"
 
 #: django:1
 msgid "Don't have an account?"
-msgstr "¿No tienes una cuenta?"
+msgstr "Don't have an account?"
 
 #: django:1
 msgid "Create one here"
-msgstr "Crea una aquí"
+msgstr "Create one here"
 
 #: django:1
 msgid "Log In"
-msgstr "Iniciar sesión"
+msgstr "Log In"
 
 #: django:1
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr "Username"
 
 #: django:1
 msgid "Password"
-msgstr "Contraseña"
+msgstr "Password"
 
 #: django:1
 msgid "Sign Up"
-msgstr "Registrarse"
+msgstr "Sign Up"
 
 #: django:1
 msgid "First Name"
-msgstr "Nombre"
+msgstr "First Name"
 
 #: django:1
 msgid "Last Name"
-msgstr "Apellido"
+msgstr "Last Name"
 
 #: django:1
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "Email"
 
 #: django:1
 msgid "User Type"
-msgstr "Tipo de usuario"
+msgstr "User Type"
 
 #: django:1
 msgid "Final User"
-msgstr "Usuario final"
+msgstr "Final User"
 
 #: django:1
 msgid "Administrator"
-msgstr "Administrador"
+msgstr "Administrator"
 
 #: django:1
 msgid "Admin"
-msgstr "Administrador"
+msgstr "Admin"
 
 #: django:1
 msgid "Special Admin Password"
-msgstr "Contraseña especial de administrador"
+msgstr "Special Admin Password"
 
 #: django:1
 msgid "Create Account"
-msgstr "Crear cuenta"
+msgstr "Create Account"
 
 #: django:1
 msgid "Already have an account?"
-msgstr "¿Ya tienes una cuenta?"
+msgstr "Already have an account?"
 
 #: django:1
 msgid "Log in here."
-msgstr "Inicia sesión aquí."
+msgstr "Log in here."
 
 #: django:1
 msgid "All Products"
-msgstr "Todos los Productos"
+msgstr "All Products"
 
 #: django:1
 msgid "Search by name"
-msgstr "Buscar por nombre"
+msgstr "Search by name"
 
 #: django:1
 msgid "Sort"
-msgstr "Ordenar"
+msgstr "Sort"
 
 #: django:1
 msgid "Price: Low to High"
-msgstr "Precio: Menor a Mayor"
+msgstr "Price: Low to High"
 
 #: django:1
 msgid "Price: High to Low"
-msgstr "Precio: Mayor a Menor"
+msgstr "Price: High to Low"
 
 #: django:1
 msgid "Alphabetical Order"
-msgstr "Orden Alfabético"
+msgstr "Alphabetical Order"
 
 #: django:1
 msgid "Search"
-msgstr "Buscar"
+msgstr "Search"
 
 #: django:1
 msgid "No image available"
-msgstr "No hay imagen disponible"
+msgstr "No image available"
 
 #: django:1
 msgid "Ref"
@@ -191,11 +191,11 @@ msgstr "Ref"
 
 #: django:1
 msgid "Price"
-msgstr "Precio"
+msgstr "Price"
 
 #: django:1
 msgid "View Details"
-msgstr "Ver Detalles"
+msgstr "View Details"
 
 #: django:1
 msgid "Popular"
@@ -203,39 +203,39 @@ msgstr "Popular"
 
 #: django:1
 msgid "New"
-msgstr "Nuevo"
+msgstr "New"
 
 #: django:1
 msgid "Discontinued"
-msgstr "Descontinuado"
+msgstr "Discontinued"
 
 #: django:1
 msgid "No products found"
-msgstr "No se encontraron productos"
+msgstr "No products found"
 
 #: django:1
 msgid "No products found related to your search."
-msgstr "No se encontraron productos relacionados con tu búsqueda."
+msgstr "No products found related to your search."
 
 #: django:1
 msgid "Main Image"
-msgstr "Imagen Principal"
+msgstr "Main Image"
 
 #: django:1
 msgid "Product Image"
-msgstr "Imagen del Producto"
+msgstr "Product Image"
 
 #: django:1
 msgid "Product"
-msgstr "Producto"
+msgstr "Product"
 
 #: django:1
 msgid "Product Details"
-msgstr "Detalles del Producto"
+msgstr "Product Details"
 
 #: django:1
 msgid "Create New Product"
-msgstr "Crear Nuevo Producto"
+msgstr "Create New Product"
 
 #: django:1
 msgid "ID"
@@ -243,124 +243,124 @@ msgstr "ID"
 
 #: django:1
 msgid "Title"
-msgstr "Título"
+msgstr "Title"
 
 #: django:1
 msgid "Actions"
-msgstr "Acciones"
+msgstr "Actions"
 
 #: django:1
 msgid "Edit"
-msgstr "Editar"
+msgstr "Edit"
 
 #: django:1
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Delete"
 
 #: django:1
 msgid "No products found."
-msgstr "No se encontraron productos."
+msgstr "No products found."
 
 #: django:1
 msgid "Create Product"
-msgstr "Crear Producto"
+msgstr "Create Product"
 
 #: django:1
 msgid "Images"
-msgstr "Imágenes"
+msgstr "Images"
 
 #: django:1
 msgid "Save"
-msgstr "Guardar"
+msgstr "Save"
 
 #: django:1
 msgid "Update Product"
-msgstr "Actualizar Producto"
+msgstr "Update Product"
 
 #: django:1
 msgid "Update"
-msgstr "Actualizar"
+msgstr "Update"
 
 #: django:1
 msgid "Delete Product"
-msgstr "Eliminar Producto"
+msgstr "Delete Product"
 
 #: django:1
 msgid "Are you sure you want to delete the product"
-msgstr "¿Estás seguro de que deseas eliminar el producto"
+msgstr "Are you sure you want to delete the product"
 
 #: django:1
 msgid "Yes, Delete"
-msgstr "Sí, Eliminar"
+msgstr "Yes, Delete"
 
 #: django:1
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancel"
 
 #: django:1
 msgid "Reference"
-msgstr "Referencia"
+msgstr "Reference"
 
 #: django:1
 msgid "Description"
-msgstr "Descripción"
+msgstr "Description"
 
 #: django:1
 msgid "Price (COP)"
-msgstr "Precio (COP)"
+msgstr "Price (COP)"
 
 #: django:1
 msgid "Price (USD)"
-msgstr "Precio (USD)"
+msgstr "Price (USD)"
 
 #: django:1
 msgid "Popular Product"
-msgstr "Producto Popular"
+msgstr "Popular Product"
 
 #: django:1
 msgid "New Product"
-msgstr "Producto Nuevo"
+msgstr "New Product"
 
 #: django:1
 msgid "Discontinued Product"
-msgstr "Producto Descontinuado"
+msgstr "Discontinued Product"
 
 #: django:1
 msgid "The special admin password is incorrect."
-msgstr "La contraseña especial para administrador es incorrecta."
+msgstr "The special admin password is incorrect."
 
 #: django:1
 msgid "Invalid credentials"
-msgstr "Credenciales inválidas"
+msgstr "Invalid credentials"
 
 #: django:1
 msgid "Product created successfully!"
-msgstr "¡Producto creado exitosamente!"
+msgstr "Product created successfully!"
 
 #: django:1
 msgid "Product updated successfully!"
-msgstr "¡Producto actualizado exitosamente!"
+msgstr "Product updated successfully!"
 
 #: django:1
 msgid "Product deleted successfully!"
-msgstr "¡Producto eliminado exitosamente!"
+msgstr "Product deleted successfully!"
 
 #: django:1
 msgid "User must have an email address"
-msgstr "El usuario debe tener un correo electrónico"
+msgstr "User must have an email address"
 
 #: django:1
 msgid "admin/"
-msgstr "administrador/"
+msgstr "admin/"
 
 #: django:1
 msgid "users/"
-msgstr "usuarios/"
+msgstr "users/"
 
 #: django:1
 msgid "dashboard/"
-msgstr "panel-control/"
+msgstr "dashboard/"
 
 #: django:1
 msgid "&copy; 2025 NEXO. All rights reserved."
-msgstr "&copy; 2025 NEXO. Todos los derechos reservados."
+msgstr "&copy; 2025 NEXO. All rights reserved."
