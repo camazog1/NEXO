@@ -38,7 +38,7 @@ urlpatterns = [
     path('api/docs/', TemplateView.as_view(template_name='api_docs.html'), name='api_docs'),
     # API endpoint para productos
     path('api/products/', api_products, name='api_products'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # URLs traducibles - Todas las URLs incluirán el prefijo de idioma
 urlpatterns += i18n_patterns(

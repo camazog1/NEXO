@@ -82,11 +82,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'nexo',
+        'USER': 'admin',
+        'PASSWORD': 'NEXO-Key',
+        'HOST': 'nexo-db.cx6agi2skyby.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/mnt/efs/media/' 
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

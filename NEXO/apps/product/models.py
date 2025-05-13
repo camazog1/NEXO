@@ -1,8 +1,4 @@
 from django.db import models
-import os
-from django.conf import settings
-
-# Create your models here.
 
 def product_image_upload_path(instance, filename):
     return f'{instance.product.reference}/images/{filename}'
@@ -20,9 +16,3 @@ class Product(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to=product_image_upload_path)
-
-    def save(self, *args, **kwargs):
-        directory = os.path.join(settings.MEDIA_ROOT, f'{self.product.reference}/images/')
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-        super(ProductImage, self).save(*args, **kwargs)
