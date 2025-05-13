@@ -6,7 +6,7 @@ def product_image_upload_path(instance, filename):
 EXCHANGE_RATE = 1/4205.32
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    reference = models.CharField(max_length=100)
+    reference = models.CharField(max_length=100, primary_key=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)  # Precio en COP
     price_dolar = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # Precio en USD
