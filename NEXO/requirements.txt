@@ -4,3 +4,4 @@ reportlab
 xlsxwriter
 requests
 mysqlclient
+requests

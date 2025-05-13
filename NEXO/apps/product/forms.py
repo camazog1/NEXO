@@ -27,3 +27,4 @@ class ProductImageForm(forms.ModelForm):
         labels = {
             'image': _('Product Image'),
         }
+
