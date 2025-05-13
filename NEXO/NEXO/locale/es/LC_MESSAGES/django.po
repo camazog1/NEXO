@@ -1,0 +1,366 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NEXO 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-15 12:00+0000\n"
+"PO-Revision-Date: 2024-06-15 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: django:1
+msgid "HOME"
+msgstr "INICIO"
+
+#: django:1
+msgid "MENU"
+msgstr "MENÚ"
+
+#: django:1
+msgid "LOGIN"
+msgstr "INICIAR SESIÓN"
+
+#: django:1
+msgid "SIGNUP"
+msgstr "REGISTRARSE"
+
+#: django:1
+msgid "DASHBOARD"
+msgstr "PANEL DE CONTROL"
+
+#: django:1
+msgid "LOGOUT"
+msgstr "CERRAR SESIÓN"
+
+#: django:1
+msgid "NEXO Colombia: Reinventando la ropa interior masculina"
+msgstr "NEXO Colombia: Reinventando la ropa interior masculina"
+
+#: django:1
+msgid "Home Page"
+msgstr "Página de Inicio"
+
+#: django:1
+msgid "Product List"
+msgstr "Lista de Productos"
+
+#: django:1
+msgid "Product Create"
+msgstr "Crear Producto"
+
+#: django:1
+msgid "Product Update"
+msgstr "Actualizar Producto"
+
+#: django:1
+msgid "Product Delete"
+msgstr "Eliminar Producto"
+
+#: django:1
+msgid "Product Detail"
+msgstr "Detalle del Producto"
+
+#: django:1
+msgid "Discover elegance"
+msgstr "Descubre la elegancia"
+
+#: django:1
+msgid "Explore"
+msgstr "Explora"
+
+#: django:1
+msgid "Our Styles"
+msgstr "Nuestros Estilos"
+
+#: django:1
+msgid "Comfort, elegance and economy here"
+msgstr "Comodidad, elegancia y economía aquí"
+
+#: django:1
+msgid "Buy Now!"
+msgstr "¡Compra Ahora!"
+
+#: django:1
+msgid "Don't have an account?"
+msgstr "¿No tienes una cuenta?"
+
+#: django:1
+msgid "Create one here"
+msgstr "Crea una aquí"
+
+#: django:1
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: django:1
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: django:1
+msgid "Password"
+msgstr "Contraseña"
+
+#: django:1
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: django:1
+msgid "First Name"
+msgstr "Nombre"
+
+#: django:1
+msgid "Last Name"
+msgstr "Apellido"
+
+#: django:1
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: django:1
+msgid "User Type"
+msgstr "Tipo de usuario"
+
+#: django:1
+msgid "Final User"
+msgstr "Usuario final"
+
+#: django:1
+msgid "Administrator"
+msgstr "Administrador"
+
+#: django:1
+msgid "Admin"
+msgstr "Administrador"
+
+#: django:1
+msgid "Special Admin Password"
+msgstr "Contraseña especial de administrador"
+
+#: django:1
+msgid "Create Account"
+msgstr "Crear cuenta"
+
+#: django:1
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: django:1
+msgid "Log in here."
+msgstr "Inicia sesión aquí."
+
+#: django:1
+msgid "All Products"
+msgstr "Todos los Productos"
+
+#: django:1
+msgid "Search by name"
+msgstr "Buscar por nombre"
+
+#: django:1
+msgid "Sort"
+msgstr "Ordenar"
+
+#: django:1
+msgid "Price: Low to High"
+msgstr "Precio: Menor a Mayor"
+
+#: django:1
+msgid "Price: High to Low"
+msgstr "Precio: Mayor a Menor"
+
+#: django:1
+msgid "Alphabetical Order"
+msgstr "Orden Alfabético"
+
+#: django:1
+msgid "Search"
+msgstr "Buscar"
+
+#: django:1
+msgid "No image available"
+msgstr "No hay imagen disponible"
+
+#: django:1
+msgid "Ref"
+msgstr "Ref"
+
+#: django:1
+msgid "Price"
+msgstr "Precio"
+
+#: django:1
+msgid "View Details"
+msgstr "Ver Detalles"
+
+#: django:1
+msgid "Popular"
+msgstr "Popular"
+
+#: django:1
+msgid "New"
+msgstr "Nuevo"
+
+#: django:1
+msgid "Discontinued"
+msgstr "Descontinuado"
+
+#: django:1
+msgid "No products found"
+msgstr "No se encontraron productos"
+
+#: django:1
+msgid "No products found related to your search."
+msgstr "No se encontraron productos relacionados con tu búsqueda."
+
+#: django:1
+msgid "Main Image"
+msgstr "Imagen Principal"
+
+#: django:1
+msgid "Product Image"
+msgstr "Imagen del Producto"
+
+#: django:1
+msgid "Product"
+msgstr "Producto"
+
+#: django:1
+msgid "Product Details"
+msgstr "Detalles del Producto"
+
+#: django:1
+msgid "Create New Product"
+msgstr "Crear Nuevo Producto"
+
+#: django:1
+msgid "ID"
+msgstr "ID"
+
+#: django:1
+msgid "Title"
+msgstr "Título"
+
+#: django:1
+msgid "Actions"
+msgstr "Acciones"
+
+#: django:1
+msgid "Edit"
+msgstr "Editar"
+
+#: django:1
+msgid "Delete"
+msgstr "Eliminar"
+
+#: django:1
+msgid "No products found."
+msgstr "No se encontraron productos."
+
+#: django:1
+msgid "Create Product"
+msgstr "Crear Producto"
+
+#: django:1
+msgid "Images"
+msgstr "Imágenes"
+
+#: django:1
+msgid "Save"
+msgstr "Guardar"
+
+#: django:1
+msgid "Update Product"
+msgstr "Actualizar Producto"
+
+#: django:1
+msgid "Update"
+msgstr "Actualizar"
+
+#: django:1
+msgid "Delete Product"
+msgstr "Eliminar Producto"
+
+#: django:1
+msgid "Are you sure you want to delete the product"
+msgstr "¿Estás seguro de que deseas eliminar el producto"
+
+#: django:1
+msgid "Yes, Delete"
+msgstr "Sí, Eliminar"
+
+#: django:1
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: django:1
+msgid "Reference"
+msgstr "Referencia"
+
+#: django:1
+msgid "Description"
+msgstr "Descripción"
+
+#: django:1
+msgid "Price (COP)"
+msgstr "Precio (COP)"
+
+#: django:1
+msgid "Price (USD)"
+msgstr "Precio (USD)"
+
+#: django:1
+msgid "Popular Product"
+msgstr "Producto Popular"
+
+#: django:1
+msgid "New Product"
+msgstr "Producto Nuevo"
+
+#: django:1
+msgid "Discontinued Product"
+msgstr "Producto Descontinuado"
+
+#: django:1
+msgid "The special admin password is incorrect."
+msgstr "La contraseña especial para administrador es incorrecta."
+
+#: django:1
+msgid "Invalid credentials"
+msgstr "Credenciales inválidas"
+
+#: django:1
+msgid "Product created successfully!"
+msgstr "¡Producto creado exitosamente!"
+
+#: django:1
+msgid "Product updated successfully!"
+msgstr "¡Producto actualizado exitosamente!"
+
+#: django:1
+msgid "Product deleted successfully!"
+msgstr "¡Producto eliminado exitosamente!"
+
+#: django:1
+msgid "User must have an email address"
+msgstr "El usuario debe tener un correo electrónico"
+
+#: django:1
+msgid "admin/"
+msgstr "administrador/"
+
+#: django:1
+msgid "users/"
+msgstr "usuarios/"
+
+#: django:1
+msgid "dashboard/"
+msgstr "panel-control/"
+
+#: django:1
+msgid "&copy; 2025 NEXO. All rights reserved."
+msgstr "&copy; 2025 NEXO. Todos los derechos reservados."
