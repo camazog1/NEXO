@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8mubk*^k_$rekx+cr*(--x2#ivux$j54%$bf-(ne^x!q7hm$v3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nexo',
+        'NAME': 'NEXO',
         'USER': 'admin',
         'PASSWORD': 'NEXO-Key',
         'HOST': 'nexo-db.cx6agi2skyby.us-east-1.rds.amazonaws.com',

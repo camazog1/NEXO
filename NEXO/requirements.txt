@@ -3,3 +3,4 @@ Pillow
 reportlab
 xlsxwriter
 requests
+mysqlclient
