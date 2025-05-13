@@ -1,9 +1,10 @@
 from django.db import models
+from decimal import Decimal
 
 def product_image_upload_path(instance, filename):
     return f'{instance.product.reference}/images/{filename}'
 
-EXCHANGE_RATE = 1/4205.32
+EXCHANGE_RATE = Decimal('1') / Decimal('4205.32')
 class Product(models.Model):
     title = models.CharField(max_length=255)
     reference = models.CharField(max_length=100, primary_key=True)
