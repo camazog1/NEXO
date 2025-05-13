@@ -63,7 +63,7 @@
               <form action="{% url 'set_language' %}" method="post" class="language-selector">
                 {% csrf_token %}
                 <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                <select name="language">
+                <select name="language" onchange="this.form.submit()">
                   {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
                     <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
                       {{ lang_name }}
@@ -89,7 +89,7 @@
               <form action="{% url 'set_language' %}" method="post" class="language-selector">
                 {% csrf_token %}
                 <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                <select name="language">
+                <select name="language" onchange="this.form.submit()">
                   {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
                     <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
                       {{ lang_name }}

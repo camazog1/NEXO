@@ -47,8 +47,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'apps.core.middleware.LanguageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'apps.core.middleware.LanguageMiddleware',  # Reactivamos el middleware personalizado
+    'django.middleware.locale.LocaleMiddleware',  # Mantenemos el middleware estándar de Django
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -92,7 +92,7 @@ DATABASES = {
 }
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/mnt/efs/media/' 
+MEDIA_ROOT = '/mnt/efs/media/'  # Ruta en el sistema de archivos EFS de AWS
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -160,10 +160,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
-
-MEDIA_URL = 'apps/product/localstorage/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'apps/product/localstorage/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

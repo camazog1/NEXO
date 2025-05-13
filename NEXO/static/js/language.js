@@ -5,17 +5,18 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Función para manejar el cambio de idioma
+  // Función principal para manejar el cambio de idioma
   function handleLanguageChange() {
     // Obtener todos los selectores de idioma (pueden existir múltiples en la página)
     const languageSelects = document.querySelectorAll('select[name="language"]');
     
     languageSelects.forEach(function(select) {
+      // Mejorar el manejo del formulario cuando cambia el idioma
       select.addEventListener('change', function() {
         // Seleccionar el formulario padre
         const form = this.closest('form');
         
-        // Guardar el valor seleccionado en localStorage
+        // Guardar el valor seleccionado en localStorage para persistencia
         localStorage.setItem('selectedLanguage', this.value);
         
         // Asegurarse de que el campo next tiene un valor correcto
@@ -36,22 +37,30 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         
-        // Agregar un pequeño retraso para asegurar que el formulario se procese correctamente
-        setTimeout(function() {
-          form.submit();
-        }, 100);
+        // No necesitamos submit manual aquí ya que usamos onchange en el HTML
+        // El formulario ya se enviará por el atributo onchange
       });
     });
     
-    // Verificar si hay un idioma guardado en localStorage
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    const urlLanguage = window.location.pathname.split('/')[1];
-    
-    // Si el idioma en la URL no coincide con el idioma guardado, redirigir
-    if (savedLanguage && urlLanguage && savedLanguage !== urlLanguage) {
-      const newUrl = window.location.pathname.replace(`/${urlLanguage}/`, `/${savedLanguage}/`);
-      window.location.href = newUrl;
+    // Función para corregir la URL si el idioma en la URL no coincide con el guardado
+    function correctLanguageInUrl() {
+      // Verificar si hay un idioma guardado en localStorage
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (!savedLanguage) return;
+      
+      const urlParts = window.location.pathname.split('/');
+      const urlLanguage = urlParts.length > 1 ? urlParts[1] : null;
+      
+      // Si el idioma en la URL no coincide con el idioma guardado, redirigir
+      if (urlLanguage && ['es', 'en'].includes(urlLanguage) && savedLanguage !== urlLanguage) {
+        urlParts[1] = savedLanguage;
+        window.location.href = urlParts.join('/');
+      }
     }
+    
+    // Verificar la URL al cargar la página
+    // Comentamos esta parte para evitar redirecciones no deseadas
+    // correctLanguageInUrl();
   }
   
   // Inicializar la funcionalidad de cambio de idioma
