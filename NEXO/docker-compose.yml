@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: nexo_app
+    volumes:
+      - .:/app
+      - /mnt/efs:/mnt/efs
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=*
+      - DATABASE_URL=mysql://admin:NEXO-Key@nexo-db.cx6agi2skyby.us-east-1.rds.amazonaws.com:3306/NEXO
+
