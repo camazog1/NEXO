@@ -14,6 +14,7 @@
     />
     <title>{% translate "NEXO Colombia: Reinventando la ropa interior masculina" %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/language.js' %}"></script>
     <style>
       #hero {
           background-image: url("{% static 'images/background.png' %}");
@@ -62,7 +63,7 @@
               <form action="{% url 'set_language' %}" method="post" class="language-selector">
                 {% csrf_token %}
                 <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                <select name="language" onchange="this.form.submit()">
+                <select name="language">
                   {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
                     <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
                       {{ lang_name }}
@@ -88,7 +89,7 @@
               <form action="{% url 'set_language' %}" method="post" class="language-selector">
                 {% csrf_token %}
                 <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                <select name="language" onchange="this.form.submit()">
+                <select name="language">
                   {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
                     <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
                       {{ lang_name }}
